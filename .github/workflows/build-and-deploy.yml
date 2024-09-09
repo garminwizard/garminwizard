@@ -54,15 +54,9 @@ jobs:
     # - name: Run update-prices
     #   run: garmin/bin/Release/net8.0/garmin update-prices
 
-    - name: List files in current directory
-      run: ls 
-
-    - name: List files
-      run: ls garmin/bin/Release/net8.0/
-
     # Step 5: Copy the SQLite database to the Docusaurus directory
     - name: Copy SQLite DB
-      run: cp garmin/bin/Release/net8.0/products.db homepage/static/garmin
+      run: cp products.db homepage/static/garmin
       
     # Step 6: Install Docusaurus dependencies
     - name: Install Docusaurus dependencies

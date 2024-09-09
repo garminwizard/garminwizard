@@ -54,6 +54,9 @@ jobs:
     # - name: Run update-prices
     #   run: garmin/bin/Release/net8.0/garmin update-prices
 
+    - name: List files in current directory
+      run: ls 
+
     - name: List files
       run: ls garmin/bin/Release/net8.0/
 

@@ -22,13 +22,14 @@ jobs:
 
     - name: Print current directory before restoring dependencies
       run: pwd
-      
+
     # Step 3: Restore .NET dependencies
     - name: Restore dependencies
       run: dotnet restore garmin/garmin.csproj
 
     # Step 4: Build the application
     - name: Build the application
+      working-directory: garmin  # cd into the garmin directory
       run: dotnet build --configuration Release
 
     # Step 5: Run your commands sequentially

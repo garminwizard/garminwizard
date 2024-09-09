@@ -36,27 +36,27 @@ jobs:
     - name: Run get-product-list
       run: garmin/bin/Release/net8.0/garmin get-product-list
 
-    # - name: Run get-products-html-files
-    #   run: garmin/bin/Release/net7.0/garmin get-products-html-files
+    - name: Run get-products-html-files
+      run: garmin/bin/Release/net8.0/garmin get-products-html-files
 
-    # - name: Run extract-products-to-json-from-html-files
-    #   run: garmin/bin/Release/net7.0/garmin extract-products-to-json-from-html-files
+    - name: Run extract-products-to-json-from-html-files
+      run: garmin/bin/Release/net8.0/garmin extract-products-to-json-from-html-files
 
-    # - name: Run get-prices
-    #   run: garmin/bin/Release/net7.0/garmin get-prices
+    - name: Run get-prices
+      run: garmin/bin/Release/net8.0/garmin get-prices
 
-    # - name: Run create-table
-    #   run: garmin/bin/Release/net8.0/garmin create-table
+    - name: Run create-table
+      run: garmin/bin/Release/net8.0/garmin create-table
 
-    # - name: Run populate-database-from-json-files
-    #   run: garmin/bin/Release/net7.0/garmin populate-database-from-json-files
+    - name: Run populate-database-from-json-files
+      run: garmin/bin/Release/net8.0/garmin populate-database-from-json-files
 
-    # - name: Run update-prices
-    #   run: garmin/bin/Release/net7.0/garmin update-prices
+    - name: Run update-prices
+      run: garmin/bin/Release/net8.0/garmin update-prices
 
     # Step 5: Copy the SQLite database to the Docusaurus directory
-    # - name: Copy SQLite DB
-    #   run: cp garmin/products.db homepage/static/garmin
+    - name: Copy SQLite DB
+      run: cp garmin/products.db homepage/static/garmin
       
     # Step 6: Install Docusaurus dependencies
     - name: Install Docusaurus dependencies

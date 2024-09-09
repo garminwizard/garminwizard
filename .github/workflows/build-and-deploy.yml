@@ -1,0 +1,72 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Setup .NET
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.x'  # specify your .NET version
+
+    # Step 3: Restore .NET dependencies
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # Step 4: Build the application
+    - name: Build the application
+      run: dotnet build --configuration Release
+
+    # Step 5: Run your commands sequentially
+    - name: Run get-product-list
+      run: dotnet run --project path-to-your-project -- get-product-list
+
+    - name: Run get-products-html-files
+      run: dotnet run --project path-to-your-project -- get-products-html-files
+
+    - name: Run extract-products-to-json-from-html-files
+      run: dotnet run --project path-to-your-project -- extract-products-to-json-from-html-files
+
+    - name: Run get-prices
+      run: dotnet run --project path-to-your-project -- get-prices
+
+    - name: Run create-table
+      run: dotnet run --project path-to-your-project -- create-table
+
+    - name: Run populate-database-from-json-files
+      run: dotnet run --project path-to-your-project -- populate-database-from-json-files
+
+    - name: Run update-prices
+      run: dotnet run --project path-to-your-project -- update-prices
+
+    # Step 6: Copy the SQLite database to the Docusaurus directory
+    - name: Copy SQLite DB
+      run: cp path-to-sqlite-db path-to-docusaurus-directory
+
+    # Step 7: Install Docusaurus dependencies
+    - name: Install Docusaurus dependencies
+      working-directory: path-to-docusaurus
+      run: npm install
+
+    # Step 8: Build Docusaurus
+    - name: Build Docusaurus
+      working-directory: path-to-docusaurus
+      run: npm run build
+
+    # Step 9: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: path-to-docusaurus/build  # path to your Docusaurus build directory

@@ -22,6 +22,7 @@ jobs:
 
     # Step 3: Restore .NET dependencies
     - name: Restore dependencies
+      working-directory: garmin  # cd into the garmin directory
       run: dotnet restore
 
     # Step 4: Build the application

@@ -20,17 +20,17 @@ jobs:
     #   with:
     #     dotnet-version: '8.x'  # specify your .NET version
 
-    - name: Print current directory before restoring dependencies
-      run: pwd
+    # - name: Print current directory before restoring dependencies
+    #   run: pwd
 
-    # Step 3: Restore .NET dependencies
-    - name: Restore dependencies
-      run: dotnet restore garmin/garmin.csproj
+    # # Step 3: Restore .NET dependencies
+    # - name: Restore dependencies
+    #   run: dotnet restore garmin/garmin.csproj
 
-    # Step 4: Build the application
-    - name: Build the application
-      working-directory: garmin  # cd into the garmin directory
-      run: dotnet build --configuration Release
+    # # Step 4: Build the application
+    # - name: Build the application
+    #   working-directory: garmin  # cd into the garmin directory
+    #   run: dotnet build --configuration Release
 
     # # Step 5: Run your commands sequentially
     # - name: Run get-product-list
@@ -45,8 +45,8 @@ jobs:
     # - name: Run get-prices
     #   run: garmin/bin/Release/net7.0/garmin get-prices
 
-    - name: Run create-table
-      run: garmin/bin/Release/net8.0/garmin create-table
+    # - name: Run create-table
+    #   run: garmin/bin/Release/net8.0/garmin create-table
 
     # - name: Run populate-database-from-json-files
     #   run: garmin/bin/Release/net7.0/garmin populate-database-from-json-files
@@ -55,8 +55,8 @@ jobs:
     #   run: garmin/bin/Release/net7.0/garmin update-prices
 
     # Step 5: Copy the SQLite database to the Docusaurus directory
-    - name: Copy SQLite DB
-      run: cp garmin/products.db homepage/static/garmin
+    # - name: Copy SQLite DB
+    #   run: cp garmin/products.db homepage/static/garmin
       
     # Step 6: Install Docusaurus dependencies
     - name: Install Docusaurus dependencies

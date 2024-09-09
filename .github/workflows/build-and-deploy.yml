@@ -46,7 +46,7 @@ jobs:
     #   run: garmin/bin/Release/net7.0/garmin get-prices
 
     - name: Run create-table
-      run: garmin/bin/Release/net7.0/garmin create-table
+      run: garmin/bin/Release/net8.0/garmin create-table
 
     # - name: Run populate-database-from-json-files
     #   run: garmin/bin/Release/net7.0/garmin populate-database-from-json-files

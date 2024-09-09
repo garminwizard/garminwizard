@@ -14,27 +14,27 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # # Step 2: Setup .NET
-    # - name: Setup .NET Core
-    #   uses: actions/setup-dotnet@v3
-    #   with:
-    #     dotnet-version: '8.x'  # specify your .NET version
+    # Step 2: Setup .NET
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.x'  # specify your .NET version
 
-    # - name: Print current directory before restoring dependencies
-    #   run: pwd
+    - name: Print current directory before restoring dependencies
+      run: pwd
 
-    # # Step 3: Restore .NET dependencies
-    # - name: Restore dependencies
-    #   run: dotnet restore garmin/garmin.csproj
+    # Step 3: Restore .NET dependencies
+    - name: Restore dependencies
+      run: dotnet restore garmin/garmin.csproj
 
-    # # Step 4: Build the application
-    # - name: Build the application
-    #   working-directory: garmin  # cd into the garmin directory
-    #   run: dotnet build --configuration Release
+    # Step 4: Build the application
+    - name: Build the application
+      working-directory: garmin  # cd into the garmin directory
+      run: dotnet build --configuration Release
 
-    # # Step 5: Run your commands sequentially
-    # - name: Run get-product-list
-    #   run: garmin/bin/Release/net7.0/garmin get-product-list
+    # Step 5: Run your commands sequentially
+    - name: Run get-product-list
+      run: garmin/bin/Release/net8.0/garmin get-product-list
 
     # - name: Run get-products-html-files
     #   run: garmin/bin/Release/net7.0/garmin get-products-html-files

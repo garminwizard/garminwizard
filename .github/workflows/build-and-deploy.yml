@@ -56,7 +56,7 @@ jobs:
 
     # Step 5: Copy the SQLite database to the Docusaurus directory
     - name: Copy SQLite DB
-      run: cp garmin/products.db homepage/static/garmin
+      run: cp garmin/bin/Release/net8.0/products.db homepage/static/garmin
       
     # Step 6: Install Docusaurus dependencies
     - name: Install Docusaurus dependencies
@@ -79,9 +79,9 @@ jobs:
       working-directory: homepage
       run: npm run build
 
-    # # Step 8: Deploy to GitHub Pages
-    # - name: Deploy to GitHub Pages
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: path-to-docusaurus/build  # path to your Docusaurus build directory
+    # Step 8: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: homepage/build  # path to your Docusaurus build directory

@@ -20,6 +20,9 @@ jobs:
       with:
         dotnet-version: '7.x'  # specify your .NET version
 
+    - name: Print current directory before restoring dependencies
+      run: pwd
+      
     # Step 3: Restore .NET dependencies
     - name: Restore dependencies
       run: dotnet restore garmin/garmin.csproj

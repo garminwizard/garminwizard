@@ -84,4 +84,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: main  # Push to the main branch of garminwizard.github.io
         publish_dir: homepage/build  # path to your Docusaurus build directory
+        external_repository: garminwizard/garminwizard.github.io  # The GitHub Pages repository    
+  

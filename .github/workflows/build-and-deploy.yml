@@ -83,7 +83,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
-        deploy_key: ${{ secrets.PERSONAL_TOKEN }}
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
         external_repository: garminwizard/garminwizard.github.io  # The GitHub Pages repository    
         publish_branch: main  # Push to the main branch of garminwizard.github.io
         publish_dir: homepage/build  # path to your Docusaurus build directory

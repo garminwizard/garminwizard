@@ -25,8 +25,9 @@ public class CreateProductsTableCommand
                     specDisplayName TEXT,
                     specDisplayValue TEXT
                 );
-                
                 CREATE INDEX IF NOT EXISTS idx_specKey_specValue ON products (specKey, specValue);
+                CREATE TABLE IF NOT EXISTS last_update (last_updated DATETIME DEFAULT CURRENT_TIMESTAMP);
+                INSERT INTO last_update (last_updated) VALUES (CURRENT_TIMESTAMP);
                 ";
 
 

@@ -3,7 +3,7 @@ title: Garmin watch wizard
 sidebar_position: 3
 ---
 <div>
-    At the time of downloading, Garmin had a total of 
+    At the time of downloading, <span id="productDownloadDatePlaceholder"></span>, Garmin had a total of 
     <span id="productCountPlaceholder"></span> watches on their web pages.
 
     These watches had a total of <span id="specificationCountPlaceholder"></span> specifications to choose

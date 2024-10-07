@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '50 19 * * 1'  # Runs every Monday at 21:50 UTC
 
 jobs:
   build-and-deploy:

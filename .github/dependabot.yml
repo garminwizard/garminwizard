@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/garmin"
+    schedule:
+      interval: "daily"  # You can set this to daily, weekly, etc.

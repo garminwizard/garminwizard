@@ -32,6 +32,4 @@ When running the first time, the commands should be executed in the order above 
 
 # Garmin wizard
 
-- Download the [Garmin wizard](https://github.com/garminwizard/garminwizard-homepage)
-- Copy the products.db to that projects `static/garmin` directory.
-- Adapt the wizard to your needs. 
+Once you have executed all the commands described above, you will have a products.db sqlite3 database. Copy this to the `static/garmin` directory in the [homepage](../homepage) directory. Follow the instructions there to build the homepage.

@@ -1,8 +1,12 @@
 name: Build and Deploy
 
 on:
-  workflow_dispatch:
-    
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '05 20 * * 1'  # Runs every Monday at 22:05 UTC
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -42,9 +46,6 @@ jobs:
 
     - name: Run get-prices
       run: garmin/bin/Release/net8.0/garmin get-prices
-
-    - name: Run create-table
-      run: garmin/bin/Release/net8.0/garmin create-table
 
     - name: Run populate-database-from-json-files
       run: garmin/bin/Release/net8.0/garmin populate-database-from-json-files

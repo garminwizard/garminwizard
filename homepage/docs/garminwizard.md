@@ -3,10 +3,11 @@ title: Garmin watch wizard
 sidebar_position: 3
 ---
 <div>
-    At the time of downloading, <span id="productDownloadDatePlaceholder"></span>, Garmin had a total of 
-    <span id="productCountPlaceholder"></span> watches on their web pages.
+    The Garmin wizard was last updated <span id="productDownloadDatePlaceholder"></span>.
+    It contains the specifications for
+    <span id="productCountPlaceholder"></span> watches. Some of these are not in sale anymore.
 
-    These watches had a total of <span id="specificationCountPlaceholder"></span> specifications to choose
+    The watches has a total of <span id="specificationCountPlaceholder"></span> specifications to choose
     between.
 </div>
 

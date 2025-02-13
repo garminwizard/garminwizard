@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 0: Copy the SQLite database to the garmin directory
-    - name: Copy current SQLite DB
-      run: cp homepage/static/garmin/products.db .
-
     # Step 1: Checkout the code
     - name: Checkout code
       uses: actions/checkout@v4
+
+      # Step 1b: Copy the SQLite database to the garmin directory
+    - name: Copy current SQLite DB
+      run: cp homepage/static/garmin/products.db .
 
     # Step 2: Setup .NET
     - name: Setup .NET Core

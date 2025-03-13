@@ -104,17 +104,18 @@ public class PopulateDatabaseCommand
                         string specDisplayValue = value.specDisplayValue.ToString();
                         var specValue = StripHtml(specDisplayValue);
 
-                        string insertSql = @"
+ string insertSql = @"
 INSERT INTO Products (productId, displayName, productUrl, specGroupKeyDisplayName, specKey, specValue, specDisplayName, specDisplayValue)
 VALUES (@productId, @displayName, @productUrl, @specGroupKeyDisplayName, @specKey, @specValue, @specDisplayName, @specDisplayValue)
-CONFLICT(productId, specGroupKeyDisplayName, specKey) DO UPDATE SET
-displayName = excluded.displayName,
-productUrl = excluded.productUrl,
-specGroupKeyDisplayName = excluded.specGroupKeyDisplayName,
-specKey = excluded.specKey,
-specValue = excluded.specValue,
-specDisplayName = excluded.specDisplayName,
-specDisplayValue = excluded.specDisplayValue";
+ON CONFLICT(productId, specGroupKeyDisplayName, specKey) DO UPDATE SET
+    displayName = excluded.displayName,
+    productUrl = excluded.productUrl,
+    specGroupKeyDisplayName = excluded.specGroupKeyDisplayName,
+    specKey = excluded.specKey,
+    specValue = excluded.specValue,
+    specDisplayName = excluded.specDisplayName,
+    specDisplayValue = excluded.specDisplayValue;";
+    
                         using (var insertCommand = new SQLiteCommand(insertSql, connection))
                         {
                             insertCommand.Parameters.AddWithValue("@productId", productId);

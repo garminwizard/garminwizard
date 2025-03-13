@@ -107,7 +107,7 @@ public class PopulateDatabaseCommand
                         string insertSql = @"
 INSERT INTO Products (productId, displayName, productUrl, specGroupKeyDisplayName, specKey, specValue, specDisplayName, specDisplayValue)
 VALUES (@productId, @displayName, @productUrl, @specGroupKeyDisplayName, @specKey, @specValue, @specDisplayName, @specDisplayValue)
-ON CONFLICT(productId) DO UPDATE SET
+CONFLICT(productId, specGroupKeyDisplayName, specKey) DO UPDATE SET
 displayName = excluded.displayName,
 productUrl = excluded.productUrl,
 specGroupKeyDisplayName = excluded.specGroupKeyDisplayName,

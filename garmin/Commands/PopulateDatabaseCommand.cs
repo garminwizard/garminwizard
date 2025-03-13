@@ -27,6 +27,12 @@ public class PopulateDatabaseCommand
                 // Open connection
                 connection.Open();
 
+                string updateSqlCmd = "UPDATE last_update SET last_updated = CURRENT_TIMESTAMP";
+                using (var command = new SQLiteCommand(updateSqlCmd, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
                 foreach (string filePath in files)
                 {
                     Console.WriteLine($"Processing file: {filePath}");

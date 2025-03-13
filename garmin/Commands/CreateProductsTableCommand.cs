@@ -23,7 +23,8 @@ public class CreateProductsTableCommand
                     specKey TEXT,
                     specValue TEXT,
                     specDisplayName TEXT,
-                    specDisplayValue TEXT
+                    specDisplayValue TEXT,
+                    CONSTRAINT unique_product_spec UNIQUE (productId, specGroupKeyDisplayName, specKey)
                 );
                 CREATE INDEX IF NOT EXISTS idx_specKey_specValue ON products (specKey, specValue);
                 CREATE TABLE IF NOT EXISTS last_update (last_updated DATETIME DEFAULT CURRENT_TIMESTAMP);
